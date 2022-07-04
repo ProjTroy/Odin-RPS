@@ -10,6 +10,8 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+
+
     if (playerSelection == "rock" && computerSelection == "rock") {
         return "It's a draw!";
     } else if (playerSelection == "paper" && computerSelection == "paper") {
@@ -31,12 +33,20 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("rock, paper, or scissors?");
-        let computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
-    }
-}
-
-game();
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (button.id == "rock") {
+            playerSelection = "rock";
+            playRound();
+        }
+        if (button.id == "paper") {
+            playerSelection = "paper";
+            playRound();
+        }
+        if (button.id == "scissors") {
+            playerSelection = "scissors";
+            playRound();
+        }
+    });
+});
