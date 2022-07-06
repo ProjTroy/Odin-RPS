@@ -13,40 +13,47 @@ function playRound(playerSelection, computerSelection) {
 
 
     if (playerSelection == "rock" && computerSelection == "rock") {
-        return "It's a draw!";
+        alert ("It's a draw!");
     } else if (playerSelection == "paper" && computerSelection == "paper") {
-        return "It's a draw!";
+        alert ("It's a draw!");
     } else if (playerSelection == "scissors" && computerSelection == "scissors") {
-        return "It's a draw!";
+        alert ("It's a draw!");
     } else if (playerSelection == "rock" && computerSelection == "paper") {
-        return "You Lose! Paper beats Rock";
+        alert ("You Lose! Paper beats Rock");
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        return "You Win! Rock beats Scissors";
+        alert ("You Win! Rock beats Scissors");
     } else if (playerSelection == "paper" && computerSelection == "rock") {
-        return "You Win! Paper beats Rock";
+        alert ("You Win! Paper beats Rock");
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
-        return "You Lose! Scissors beats Paper";
+        alert ("You Lose! Scissors beats Paper");
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        return "You Lose! Rock beats scissors";
+        alert ("You Lose! Rock beats scissors");
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        return "You Win! Scissors beats Paper";
+        alert ("You Win! Scissors beats Paper");
     }
 }
+
+let playerSelection = "";
+let computerSelection = computerPlay();
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if (button.id == "rock") {
+            computerSelection = computerPlay();
             playerSelection = "rock";
-            playRound();
-        }
-        if (button.id == "paper") {
+            playRound(playerSelection, computerSelection);
+            console.log("computer: " + computerSelection);
+        } else if (button.id == "paper") {
+            computerSelection = computerPlay();
             playerSelection = "paper";
-            playRound();
-        }
-        if (button.id == "scissors") {
+            playRound(playerSelection, computerSelection);
+            console.log("computer: " + computerSelection);
+        } else if (button.id == "scissors") {
+            computerSelection = computerPlay();
             playerSelection = "scissors";
-            playRound();
+            playRound(playerSelection, computerSelection);
+            console.log("computer: " + computerSelection);
         }
     });
 });
